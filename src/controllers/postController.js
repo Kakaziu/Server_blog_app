@@ -42,12 +42,13 @@ exports.create = async (req, res) =>{
     const newPost = await Post.create({
       title: req.body.title,
       description: req.body.description,
-      photo_post_url: req.body.photo_post_url,
+      photo_post_url: `http://localhost:3333/images/${req.file.filename}`,
       create_by: userId
     });
 
     return res.json(newPost);
   }catch(e){
+    console.log(e);
     return res.status(400).json({
       errors: e.errors.map(err => err.message)
     });
@@ -72,10 +73,21 @@ exports.update = async (req, res) =>{
       });
     }
 
-    const newPost = await post.update(req.body);
+    let newPost;
+
+    if(!req.file){
+      newPost = await post.update(req.body);
+    }else{
+      newPost = await post.update({
+        title: req.body.title,
+        description: req.body.description,
+        photo_post_url: `http://localhost:3333/images/${req.file.filename}`
+      });
+    }
 
     return res.json(newPost);
   }catch(e){
+    console.log(e);
     return res.status(400).json({
       errors: e.errors.map(err => err.message)
     });
