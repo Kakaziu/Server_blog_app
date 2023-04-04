@@ -37,14 +37,13 @@ module.exports = class Post extends Model{
       create_by: {
         type: Sequelize.STRING,
         defaultValue: '',
-        validate: {
-          notEmpty: {
-            msg: 'O post precisa de um autor'
-          }
-        }
       }
     }, {
       sequelize
     });
+  }
+
+  static associate(models){
+    this.belongsTo(models.User, { foreignKey: 'create_by' });
   }
 };
