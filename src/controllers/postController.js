@@ -48,7 +48,6 @@ exports.create = async (req, res) =>{
 
     return res.json(newPost);
   }catch(e){
-    console.log(e);
     return res.status(400).json({
       errors: e.errors.map(err => err.message)
     });
@@ -113,7 +112,6 @@ exports.delete = async (req, res) =>{
     }
 
     await post.destroy();
-
     return res.json({ msg: 'Post deletado' });
   }catch(e){
     return res.json(null);
