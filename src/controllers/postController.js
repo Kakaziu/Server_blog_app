@@ -80,7 +80,7 @@ exports.update = async (req, res) =>{
       newPost = await post.update({
         title: req.body.title,
         description: req.body.description,
-        photo_post_url: `http://localhost:3333/images/${req.file.filename}`
+        photo_post_url: `http://54.207.30.74:3333/images/${req.file.filename}`
       });
     }
 
