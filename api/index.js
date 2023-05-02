@@ -1,5 +1,6 @@
 
 require('../src/database');
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { resolve } = require('path');
@@ -18,5 +19,9 @@ app.use(express.static(resolve(__dirname, 'uploads')));
 app.use('/users', userRoutes);
 app.use('/tokens', tokenRoutes);
 app.use('/posts', postRoutes);
+
+app.listen(process.env.PORT, () =>{
+  console.log('Server is running...');
+});
 
 module.exports = app;
