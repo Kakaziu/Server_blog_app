@@ -1,14 +1,14 @@
 
-require('./src/database');
+require('../src/database');
 const express = require('express');
 const cors = require('cors');
 const { resolve } = require('path');
 
 const app = express();
 
-const userRoutes = require('./src/routes/user');
-const tokenRoutes = require('./src/routes/token');
-const postRoutes = require('./src/routes/post');
+const userRoutes = require('../src/routes/user');
+const tokenRoutes = require('../src/routes/token');
+const postRoutes = require('../src/routes/post');
 
 app.use(cors());
 app.use(express.json());
