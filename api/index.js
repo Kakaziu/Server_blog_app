@@ -4,6 +4,7 @@ try{
   const express = require('express');
   const cors = require('cors');
   const { resolve } = require('path');
+  const User = require('../src/models/User');
 
   const app = express();
 
@@ -11,8 +12,14 @@ try{
   const tokenRoutes = require('../src/routes/token');
   const postRoutes = require('../src/routes/post');
 
-  app.get('/', (req, res) =>{
-    return res.json('Victor homossexual.');
+  app.get('/', async (req, res) =>{
+    try{
+      const users = await User.findAll();
+
+      return res.json(users);
+    }catch(e){
+      res.json(e);
+    }
   });
 
   app.use(cors());
