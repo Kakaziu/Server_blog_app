@@ -48,7 +48,6 @@ exports.create = async (req, res) =>{
 
     return res.json(newPost);
   }catch(e){
-    console.log(e);
     return res.status(400).json({
       errors: e.errors.map(err => err.message)
     });
