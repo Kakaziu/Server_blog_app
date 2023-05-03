@@ -1,7 +1,9 @@
 require('dotenv').config();
+const mariaDb = require('mariadb');
 
 module.exports = {
   dialect: 'mariadb',
+  dialectModule: mariaDb,
   host: process.env.DATABASE_HOST,
   port: process.env.DATABASE_PORT,
   username: process.env.DATABASE_USERNAME,
