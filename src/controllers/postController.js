@@ -23,7 +23,7 @@ exports.show = async (req, res) =>{
 
     return res.json(post);
   }catch(e){
-    return res.json(null);
+    return res.json(e);
   }
 };
 
