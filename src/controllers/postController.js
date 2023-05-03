@@ -42,7 +42,7 @@ exports.create = async (req, res) =>{
     const newPost = await Post.create({
       title: req.body.title,
       description: req.body.description,
-      photo_post_url: `https://server-blog-app-oizk-yj23a6dxv-kakaziu.vercel.app/images/${req.file.filename}`,
+      photo_post_url: `https://server-blog-app-oizk-lhcrkwgcv-kakaziu.vercel.app/images/${req.file.filename}`,
       create_by: userId
     });
 
@@ -80,7 +80,7 @@ exports.update = async (req, res) =>{
       newPost = await post.update({
         title: req.body.title,
         description: req.body.description,
-        photo_post_url: `https://server-blog-app-oizk-yj23a6dxv-kakaziu.vercel.app/images/${req.file.filename}`
+        photo_post_url: `https://server-blog-app-oizk-lhcrkwgcv-kakaziu.vercel.app/images/${req.file.filename}`
       });
     }
 
