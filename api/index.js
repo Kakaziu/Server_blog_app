@@ -13,7 +13,7 @@ const postRoutes = require('../src/routes/post');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(resolve(__dirname, '..','uploads')));
+app.use(express.static(resolve(__dirname, '..', 'uploads')));
 
 app.use('/users', userRoutes);
 app.use('/tokens', tokenRoutes);
