@@ -11,6 +11,10 @@ try{
   const tokenRoutes = require('../src/routes/token');
   const postRoutes = require('../src/routes/post');
 
+  app.get('/', (req, res) =>{
+    return res.json('Victor homossexual.');
+  });
+
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
