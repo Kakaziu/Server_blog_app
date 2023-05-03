@@ -45,12 +45,10 @@ exports.create = async (req, res) =>{
       photo_post_url: `https://server-blog-app-oizk-lhcrkwgcv-kakaziu.vercel.app/images/${req.file.filename}`,
       create_by: userId
     });
-    console.log({ title: req.body.title,
-      description: req.body.description,
-      photo_post_url: `https://server-blog-app-oizk-lhcrkwgcv-kakaziu.vercel.app/images/${req.file.filename}`,
-      create_by: userId });
+
     return res.json(newPost);
   }catch(e){
+    console.log(e);
     return res.status(400).json({
       errors: e.errors.map(err => err.message)
     });
